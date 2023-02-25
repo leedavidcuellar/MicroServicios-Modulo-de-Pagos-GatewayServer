@@ -8,7 +8,6 @@ spring:
             - Path=/api/user/**
           filters:
             - StripPrefix=0
-
         - id: service-accounts
           uri: lb://service-accounts
           predicates:
@@ -21,3 +20,9 @@ spring:
             - Path=/api/transaction/**
           filters:
             - StripPrefix=0
+        - id: service-oauth
+          uri: lb://service-oauth
+          predicates:
+            - Path=/api/security/**
+          filters:
+            - StripPrefix=2
